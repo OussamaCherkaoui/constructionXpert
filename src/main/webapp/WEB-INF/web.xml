@@ -10,4 +10,84 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ourProjects</servlet-name>
+    <servlet-class>com.octest.servlets.ourProjects</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ourProjects</servlet-name>
+    <url-pattern>/ourProjects</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>tasksProject</servlet-name>
+    <servlet-class>com.octest.servlets.tasksProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tasksProject</servlet-name>
+    <url-pattern>/tasksProject</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ressourcesTask</servlet-name>
+    <servlet-class>com.octest.servlets.ressourcesTask</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ressourcesTask</servlet-name>
+    <url-pattern>/ressourcesTask</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>newProject</servlet-name>
+    <servlet-class>com.octest.servlets.newProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>newProject</servlet-name>
+    <url-pattern>/newProject</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>newTask</servlet-name>
+    <servlet-class>com.octest.servlets.newTask</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>newTask</servlet-name>
+    <url-pattern>/newTask</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>newRessource</servlet-name>
+    <servlet-class>com.octest.servlets.newRessource</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>newRessource</servlet-name>
+    <url-pattern>/newRessource</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>editProject</servlet-name>
+    <servlet-class>com.octest.servlets.editProject</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editProject</servlet-name>
+    <url-pattern>/editProject</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>editTask</servlet-name>
+    <servlet-class>com.octest.servlets.editTask</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editTask</servlet-name>
+    <url-pattern>/editTask</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>editRessource</servlet-name>
+    <servlet-class>com.octest.servlets.editRessource</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editRessource</servlet-name>
+    <url-pattern>/editRessource</url-pattern>
+  </servlet-mapping>
 </web-app>

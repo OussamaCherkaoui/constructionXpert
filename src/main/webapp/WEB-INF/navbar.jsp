@@ -23,16 +23,16 @@
             </a>
             <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="./" id="active">Home</a>
+                    <a class="nav-link" href="./" id="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./ourProjects">Projects</a>
+                    <a class="nav-link" href="./ourProjects" id="project">Projects</a>
                 </li>
             </ul>
         </div>
 
         <div class="d-flex align-items-center">
-            <a class="btn btn-default" href="#" role="button" id="btnNewProject">New Project
+            <a class="btn btn-default" href="./newProject" role="button" id="btnNewProject">New Project
                 <img style="margin-left: 8px" src="https://i.ibb.co/qMCr2VQ/more.png" height="20">
             </a>
         </div>

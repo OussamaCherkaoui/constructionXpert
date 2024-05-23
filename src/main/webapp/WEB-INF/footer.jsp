@@ -14,7 +14,7 @@
                         <a href="#!">Tasks</a>
                     </li>
                     <li>
-                        <a href="#!"">Ressources</a>
+                        <a href="#!">Ressources</a>
                     </li>
                 </ul>
             </div>
