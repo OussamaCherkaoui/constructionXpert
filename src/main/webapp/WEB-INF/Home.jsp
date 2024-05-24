@@ -44,7 +44,7 @@
 </div>
 
 <div class="card-body m-3 p-5">
-    <h1 class="card-title" style="color: #FF6900">Welcome </h1>
+    <h1 class="card-title" style="color: #FF6900" id="welcome">Welcome </h1>
     <p class="card-text fw-bold">to the project management application for
         construction by ConstructionXpert Services</p>
 </div>
@@ -109,6 +109,13 @@
     let project=document.getElementById('project');
     project.id="";
     home.id="active";
+
+    document.getElementById('btnGetStarted').addEventListener('click', function(event) {
+        event.preventDefault(); // Empêche le comportement par défaut du lien
+        document.getElementById('welcome').scrollIntoView({
+            behavior: 'smooth' // Défilement fluide
+        });
+    });
 </script>
 </body>
 </html>
