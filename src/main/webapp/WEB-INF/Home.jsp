@@ -28,15 +28,15 @@
 <body>
 <%@ include file="navbar.jsp"%>
 <div class="card text-white">
-    <img src="https://i.ibb.co/xXnGVTF/mobile-engineers.jpg" alt="introduction picture" height="420">
-    <div class="card-img-overlay mt-5" style="margin-left:65px ">
+    <img src="https://i.ibb.co/xXnGVTF/mobile-engineers.jpg" alt="introduction picture" height="500">
+    <div class="card-img-overlay" style="margin-left:65px;margin-top: 100px">
         <h5 class="card-title text-black">Mission</h5>
         <h1 class="card-title fw-bold" style="color: #FF6900">Creating</h1>
-        <p class="card-text" style="color: #FFDFB9">construction projects are taking<br>
+        <p class="card-text fs-4" style="color: #FFDFB9">construction projects are taking<br>
             place in your local communities<br>
             and around the world .</p>
         <p class="card-text mt-4">
-            <a class="btn btn-default rounded-5" href="#" role="button" id="btnGetStarted" style="background-color: #FF6900; color: white">Get Started
+            <a class="btn btn-default rounded-5" role="button" id="btnGetStarted" style="background-color: #FF6900; color: white">Get Started
             <img style="margin-left: 8px;" src="https://i.ibb.co/641V7bq/play-1.png" height="30">
             </a>
         </p>
@@ -111,9 +111,9 @@
     home.id="active";
 
     document.getElementById('btnGetStarted').addEventListener('click', function(event) {
-        event.preventDefault(); // Empêche le comportement par défaut du lien
+        event.preventDefault();
         document.getElementById('welcome').scrollIntoView({
-            behavior: 'smooth' // Défilement fluide
+            behavior: 'smooth'
         });
     });
 </script>

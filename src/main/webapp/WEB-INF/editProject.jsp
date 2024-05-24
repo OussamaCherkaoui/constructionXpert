@@ -33,7 +33,7 @@
     <h1 class="card-title text-center fw-bold" style="color: #FF6900">Edit Project</h1>
 </div>
 
-<div class="container text-white w-75 mb-5 p-4" style="background-color: #FF6900">
+<div class="container text-white w-75 mb-5 p-4 rounded-2" style="background-color: #FF6900">
     <form action="editProject" method="post" class="d-flex flex-column align-items-center">
         <input type="hidden" name="idProject" value="${idProject}">
         <div class=" mb-4 w-75">

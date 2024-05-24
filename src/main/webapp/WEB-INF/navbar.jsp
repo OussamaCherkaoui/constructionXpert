@@ -13,7 +13,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="navbar-brand p-2 mt-2 mt-lg-0 " href="#">
+            <a class="navbar-brand p-2 mt-2 mt-lg-0 " href="./">
                 <img
                         src="https://i.ibb.co/SVVRpCM/logo-1.png"
                         height="30"
