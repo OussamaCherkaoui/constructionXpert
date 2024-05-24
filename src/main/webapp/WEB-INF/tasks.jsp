@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,28 +33,27 @@
     <h1 class="card-title text-center fw-bold" style="color: #FF6900">Tasks for Project</h1>
 </div>
 <div class="row gap-5 mb-5" style="display: flex;flex-direction: row;flex-wrap: wrap;align-items: center;justify-content: center">
+    <c:forEach var="task" items="${tasks}">
     <div class="card m-2 d-flex align-items-center" style="width: 30%;background-color: #FF6900;">
         <div class="row g-0 ">
                 <div class="card-body">
                     <div class="d-flex flex-row align-items-center gap-5 text-white">
                         <h5>Manager :</h5>
-                         <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="150" width="150">
+                         <img src="${task.getPictureResponsable()}" class="rounded-5 p-3" alt="..." height="150" width="150">
                     </div>
                     <p class="card-text text-white fw-semibold" style="width: 80%">
-                        Description : Our user-friendly tool enables your team
-                        to efficiently plan, organize, and manage
-                        all your construction projects.
+                         ${task.getDescriptionTache()}
                     </p>
                     <p class="card-text text-white fw-semibold">
-                        Start Date : 21/05/2024 <br>
-                        Start End  : 21/07/2024
+                        Start Date : ${task.getStartDate()} <br>
+                        Start End  : ${task.getEndDate()}
                     </p>
                     <p class="card-text text-white fw-semibold">
-                    Statut : à faire
+                    Statut : ${task.getStatut()}
                     </p>
                     <div class="button-crud d-flex flex-row gap-2">
-                        <a class="btn btn-default rounded-2 text-black fw-semibold" href="./ressourcesTask" role="button" id="btnGetStarted" style="background-color: #FFDFB9;width:155px; color: white">View Ressources</a>
-                        <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editTask" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
+                        <a class="btn btn-default rounded-2 text-black fw-semibold" href="./ressourcesTask?idTask=${task.getIdTask()}" role="button" id="btnGetStarted" style="background-color: #FFDFB9;width:155px; color: white">View Ressources</a>
+                        <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editTask?idTask=${task.getIdTask()}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
                             <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
                         </a>
                         <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
@@ -63,137 +63,15 @@
                 </div>
         </div>
     </div>
-    <div class="card m-2 d-flex align-items-center" style="width: 30%;background-color: #FF6900;">
-        <div class="row g-0 ">
-            <div class="card-body">
-                <div class="d-flex flex-row align-items-center gap-5 text-white">
-                    <h5>Manager :</h5>
-                    <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="150" width="150">
-                </div>
-                <p class="card-text text-white fw-semibold" style="width: 80%">
-                    Description : Our user-friendly tool enables your team
-                    to efficiently plan, organize, and manage
-                    all your construction projects.
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Start Date : 21/05/2024 <br>
-                    Start End  : 21/07/2024
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Statut : à faire
-                </p>
-                <div class="button-crud d-flex flex-row gap-2">
-                    <a class="btn btn-default rounded-2 text-black fw-semibold" href="#" role="button" id="btnGetStarted" style="background-color: #FFDFB9;width:155px; color: white">View Ressources</a>
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="#" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
-                        <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
-                    </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
-                        <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card m-2 d-flex align-items-center" style="width: 30%;background-color: #FF6900;">
-        <div class="row g-0 ">
-            <div class="card-body">
-                <div class="d-flex flex-row align-items-center gap-5 text-white">
-                    <h5>Manager :</h5>
-                    <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="150" width="150">
-                </div>
-                <p class="card-text text-white fw-semibold" style="width: 80%">
-                    Description : Our user-friendly tool enables your team
-                    to efficiently plan, organize, and manage
-                    all your construction projects.
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Start Date : 21/05/2024 <br>
-                    Start End  : 21/07/2024
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Statut : à faire
-                </p>
-                <div class="button-crud d-flex flex-row gap-2">
-                    <a class="btn btn-default rounded-2 text-black fw-semibold" href="#" role="button" id="viewRessources" style="background-color: #FFDFB9;width:155px; color: white">View Ressources</a>
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="#" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
-                        <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
-                    </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
-                        <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card m-2 d-flex align-items-center" style="width: 30%;background-color: #FF6900;">
-        <div class="row g-0 ">
-            <div class="card-body">
-                <div class="d-flex flex-row align-items-center gap-5 text-white">
-                    <h5>Manager :</h5>
-                    <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="150" width="150">
-                </div>
-                <p class="card-text text-white fw-semibold" style="width: 80%">
-                    Description : Our user-friendly tool enables your team
-                    to efficiently plan, organize, and manage
-                    all your construction projects.
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Start Date : 21/05/2024 <br>
-                    Start End  : 21/07/2024
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Statut : à faire
-                </p>
-                <div class="button-crud d-flex flex-row gap-2">
-                    <a class="btn btn-default rounded-2 text-black fw-semibold" href="#" role="button" id="btnGetStarted" style="background-color: #FFDFB9;width:155px; color: white">View Ressources</a>
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="#" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
-                        <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
-                    </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
-                        <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card m-2 d-flex align-items-center" style="width: 30%;background-color: #FF6900;">
-        <div class="row g-0 ">
-            <div class="card-body">
-                <div class="d-flex flex-row align-items-center gap-5 text-white">
-                    <h5>Manager :</h5>
-                    <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="150" width="150">
-                </div>
-                <p class="card-text text-white fw-semibold" style="width: 80%">
-                    Description : Our user-friendly tool enables your team
-                    to efficiently plan, organize, and manage
-                    all your construction projects.
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Start Date : 21/05/2024 <br>
-                    Start End  : 21/07/2024
-                </p>
-                <p class="card-text text-white fw-semibold">
-                    Statut : à faire
-                </p>
-                <div class="button-crud d-flex flex-row gap-2">
-                    <a class="btn btn-default rounded-2 text-black fw-semibold" href="#" role="button" id="btnviesRessources" style="background-color: #FFDFB9;width:155px; color: white">View Ressources</a>
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="#" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
-                        <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
-                    </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
-                        <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="d-flex flex-row align-items-center justify-content-center">
-            <a class="btn btn-default fs-5 rounded-3 text-black fw-semibold" href="./newTask" role="button" id="btnNewTask" style="background-color:#FFDFB9;width:180px; color: white">
-                New Task
-                <img style="margin-left: 8px" src="https://i.ibb.co/qMCr2VQ/more.png" height="25">
-            </a>
-        </div>
+    </c:forEach>
 </div>
+<div class="d-flex flex-row align-items-center justify-content-center mb-5">
+    <a class="btn btn-default fs-5 rounded-3 text-black fw-semibold" href="./newTask?idProject=${idProject}" role="button" id="btnNewTask" style="background-color:#FFDFB9;width:180px; color: white">
+        New Task
+        <img style="margin-left: 8px" src="https://i.ibb.co/qMCr2VQ/more.png" height="25">
+    </a>
+</div>
+
 <%@ include file="footer.jsp"%>
 <script>
     let home = document.getElementById('home');

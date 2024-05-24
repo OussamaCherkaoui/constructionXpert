@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,115 +32,45 @@
 <div class="card-body m-3 p-5">
     <h1 class="card-title text-center fw-bold" style="color: #FF6900">Ressources for Task</h1>
 </div>
+
 <div class="row gap-5 mb-5 m-0">
+    <c:forEach var="ressource" items="${ressources}">
     <div class="card mx-auto d-flex flex-row align-items-between" style="width: 80%;background-color: #FF6900;">
         <div class=" mx-auto d-flex flex-row align-items-center" >
             <div class="d-flex flex-column align-items-center justify-content-center gap-3" style="">
                 <div class="card-body d-flex flex-row gap-5">
                     <div>
                         <p class="card-text text-white fw-semibold">
-                            name: camion
+                            name: ${ressource.getNameRessource()}
                         </p>
                         <p class="card-text text-white fw-semibold">
-                            quantity : 4
+                            quantity : ${ressource.getQuantity()}
                         </p>
                     </div>
                     <div>
                         <p class="card-text text-white fw-semibold">
-                            type: transport
+                            type: ${ressource.getType()}
                         </p>
                         <p class="card-text text-white fw-semibold">
-                            supplier : Abderrahman
+                            supplier : ${ressource.getSupplier()}
                         </p>
                     </div>
                 </div>
                 <div class="p-3 d-flex flex-row justify-content-end gap-2" style="width: 100%">
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editRessource" role="button" id="modifier1" style="background-color: #FFDFB9; color: white">
+                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editRessource?idRessource=${ressource.getIdRessource()}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
                         <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
                     </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete1" style="background-color: #FFDFB9; color: white">
+                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
                         <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
                     </a>
                 </div>
             </div>
         </div>
         <div class="mx-auto">
-            <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="250" width="400">
+            <img src="${ressource.getPictureRessource()}" class="rounded-5 p-3" alt="picture ressource" height="250" width="400">
         </div>
     </div>
-
-    <div class="card mx-auto d-flex flex-row align-items-between" style="width: 80%;background-color: #FF6900;">
-        <div class=" mx-auto d-flex flex-row align-items-center" >
-            <div class="d-flex flex-column align-items-center justify-content-center gap-3" style="">
-                <div class="card-body d-flex flex-row gap-5">
-                    <div>
-                        <p class="card-text text-white fw-semibold">
-                            name: camion
-                        </p>
-                        <p class="card-text text-white fw-semibold">
-                            quantity : 4
-                        </p>
-                    </div>
-                    <div>
-                        <p class="card-text text-white fw-semibold">
-                            type: transport
-                        </p>
-                        <p class="card-text text-white fw-semibold">
-                            supplier : Abderrahman
-                        </p>
-                    </div>
-                </div>
-                <div class="p-3 d-flex flex-row justify-content-end gap-2" style="width: 100%">
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="#" role="button" id="modifier1" style="background-color: #FFDFB9; color: white">
-                        <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
-                    </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete1" style="background-color: #FFDFB9; color: white">
-                        <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="mx-auto">
-            <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="250" width="400">
-        </div>
-    </div>
-
-
-    <div class="card mx-auto d-flex flex-row align-items-between" style="width: 80%;background-color: #FF6900;">
-        <div class=" mx-auto d-flex flex-row align-items-center" >
-            <div class="d-flex flex-column align-items-center justify-content-center gap-3" style="">
-                <div class="card-body d-flex flex-row gap-5">
-                    <div>
-                        <p class="card-text text-white fw-semibold">
-                            name: camion
-                        </p>
-                        <p class="card-text text-white fw-semibold">
-                            quantity : 4
-                        </p>
-                    </div>
-                    <div>
-                        <p class="card-text text-white fw-semibold">
-                            type: transport
-                        </p>
-                        <p class="card-text text-white fw-semibold">
-                            supplier : Abderrahman
-                        </p>
-                    </div>
-                </div>
-                <div class="p-3 d-flex flex-row justify-content-end gap-2" style="width: 100%">
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="#" role="button" id="modifier1" style="background-color: #FFDFB9; color: white">
-                        <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
-                    </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete1" style="background-color: #FFDFB9; color: white">
-                        <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="mx-auto">
-            <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="250" width="400">
-        </div>
-    </div>
+    </c:forEach>
 </div>
 <div class="d-flex flex-row align-items-center justify-content-center mb-5">
     <a class="btn btn-default fs-5 rounded-3 text-black fw-semibold" href="./newRessource" role="button" id="btnNewTask" style="background-color:#FFDFB9;width:220px; color: white">

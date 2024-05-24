@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@
 </div>
 
 <div class="container text-white w-75 mb-5 p-4" style="background-color: #FF6900">
-    <form class="d-flex flex-column align-items-center">
+    <form action="newProject" method="post" class="d-flex flex-column align-items-center">
         <div class=" mb-4 w-75">
             <label class="form-label" for="name">Name project</label>
             <input type="text" id="name" name="name" class="form-control w-100" />
@@ -64,9 +65,12 @@
             <input type="text" id="picture" name="picture" class="form-control w-75" />
         </div>
         <div class="d-flex justify-content-end w-75">
-            <button  type="button" data-mdb-button-init
+            <button  type="submit" data-mdb-button-init
                      data-mdb-ripple-init class="btn btn-block btn-lg gradient-custom-4 text-body" style="background-color: #FFDFB9">Add Project</button>
         </div>
+        <c:if test="${ not empty result}">
+        <div class="fw-bold fs-5 bg-white p-2 rounded-5" style="color: #4CAF50;text-align: center">${result}</div>
+        </c:if>
     </form>
 </div>
 

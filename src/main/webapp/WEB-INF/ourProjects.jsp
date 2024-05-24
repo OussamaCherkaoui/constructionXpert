@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,68 +32,33 @@
 <div class="card-body m-3 p-5">
     <h1 class="card-title text-center fw-bold" style="color: #FF6900">Our Projects</h1>
 </div>
+
 <div class="row gap-5 mb-5 m-0">
+    <c:forEach var="project" items="${projects}">
     <div class="card mx-auto" style="width: 70%;background-color: #FF6900;">
         <div class="row g-0">
             <div class="col-md-8 d-flex align-items-center" style="padding-left: 60px">
                 <div class="card-body">
                     <h2 class="text-white">
-                        Project A
+                        ${project.getNameProject()}
                     </h2>
                     <p class="card-text text-white fw-semibold" style="width: 50%">
-                        Our user-friendly tool enables your team
-                        to efficiently plan, organize, and manage
-                        all your construction projects.
+                        ${project.getDescriptionProject()}
                     </p>
                     <p class="card-text text-white fw-semibold">
-                        Start Date : 21/05/2024 <br>
-                        Start End  : 21/07/2024
+                        Start Date : ${project.getStartDate()} <br>
+                        Start End  : ${project.getEndDate()}
                     </p>
                     <p class="card-text text-white fw-semibold">
-                        budget : 200000 dh
+                        budget : ${project.getBudget()} dh
                     </p>
                 </div>
             </div>
             <div class="col-md-4 mx-auto" >
-                <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="250" width="300">
+                <img src="${project.getPictureProject()}" class="rounded-5 p-3" alt="..." height="250" width="300">
                 <div class="button-crud p-3 d-flex flex-row gap-2">
-                    <a class="btn btn-default rounded-2 text-black fw-semibold" href="./tasksProject" role="button" id="btnGetStarted1" style="background-color: #FFDFB9;width:142px; color: white">View Tasks</a>
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editProject" role="button" id="modifier1" style="background-color: #FFDFB9; color: white">
-                        <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
-                    </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete1" style="background-color: #FFDFB9; color: white">
-                        <img  src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mx-auto" style="width: 70%;background-color: #FF6900;">
-        <div class="row g-0">
-            <div class="col-md-8 d-flex align-items-center" style="padding-left: 60px">
-                <div class="card-body">
-                    <h2 class="text-white">
-                        Project A
-                    </h2>
-                    <p class="card-text text-white fw-semibold" style="width: 50%">
-                        Our user-friendly tool enables your team
-                        to efficiently plan, organize, and manage
-                        all your construction projects.
-                    </p>
-                    <p class="card-text text-white fw-semibold">
-                        Start Date : 21/05/2024 <br>
-                        Start End  : 21/07/2024
-                    </p>
-                    <p class="card-text text-white fw-semibold">
-                        budget : 200000 dh
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4 mx-auto" >
-                <img src="https://i.ibb.co/zfRJGS1/pexels-quang-nguyen-vinh-222549-2138126.jpg" class="rounded-5 p-3" alt="..." height="250" width="300">
-                <div class="button-crud p-3 d-flex flex-row gap-2">
-                    <a class="btn btn-default rounded-2 text-black fw-semibold" href="#" role="button" id="btnGetStarted" style="background-color: #FFDFB9;width:142px; color: white">View Tasks</a>
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="#" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
+                    <a class="btn btn-default rounded-2 text-black fw-semibold" href="./tasksProject?idProject=${project.getIdProject()}" role="button" id="btnGetStarted1" style="background-color: #FFDFB9;width:142px; color: white">View Tasks</a>
+                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editProject?idProject=${project.getIdProject()}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
                         <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
                     </a>
                     <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
@@ -102,6 +68,7 @@
             </div>
         </div>
     </div>
+    </c:forEach>
 </div>
     <%@ include file="footer.jsp"%>
 <script>
