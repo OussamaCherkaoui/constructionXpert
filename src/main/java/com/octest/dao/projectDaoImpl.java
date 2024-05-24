@@ -62,8 +62,18 @@ public class projectDaoImpl implements projectDao{
     }
 
     public void deleteProject(int idProject) throws SQLException, ClassNotFoundException {
-        String sql = "delete from project where idProject=?";
+        String sql = "DELETE FROM ressource WHERE idTask IN (SELECT idTask FROM task WHERE idProject = ?);";
         PreparedStatement preparedStatement = Connection.getConnection().prepareStatement(sql);
+        preparedStatement.setInt(1,idProject);
+        preparedStatement.executeUpdate();
+
+        sql = "delete from task where idProject=?";
+        preparedStatement = Connection.getConnection().prepareStatement(sql);
+        preparedStatement.setInt(1,idProject);
+        preparedStatement.executeUpdate();
+
+        sql = "delete from project where idProject=?";
+        preparedStatement = Connection.getConnection().prepareStatement(sql);
         preparedStatement.setInt(1,idProject);
         preparedStatement.executeUpdate();
     }

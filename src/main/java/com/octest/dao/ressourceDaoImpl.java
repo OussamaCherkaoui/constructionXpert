@@ -31,21 +31,7 @@ public class ressourceDaoImpl implements ressourceDao{
     }
 
     public void addRessource(Ressource ressource) throws SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO ressource (idRessource,nameRessource,type,quantity,supplier,pictureRessource,idTask) VALUES (?,?,?,?,?,?,?)";
-        PreparedStatement preparedStatement = Connection.getConnection().prepareStatement(sql);
-
-        preparedStatement.setInt(1,ressource.getIdRessource());
-        preparedStatement.setString(2,ressource.getNameRessource());
-        preparedStatement.setString(3,ressource.getType());
-        preparedStatement.setInt(4,ressource.getQuantity());
-        preparedStatement.setString(5,ressource.getSupplier());
-        preparedStatement.setString(6,ressource.getPictureRessource());
-        preparedStatement.setInt(7,ressource.getIdTask());
-        preparedStatement.executeUpdate();
-    }
-
-    public void updateRessource(Ressource ressource) throws SQLException, ClassNotFoundException {
-        String sql = "update ressource set nameRessource=?,type=?,quantity=?,supplier=?,pictureRessource=?,idTask=? where idRessource=?";
+        String sql = "INSERT INTO ressource (nameRessource,type,quantity,supplier,pictureRessource,idTask) VALUES (?,?,?,?,?,?)";
         PreparedStatement preparedStatement = Connection.getConnection().prepareStatement(sql);
 
         preparedStatement.setString(1,ressource.getNameRessource());
@@ -54,7 +40,19 @@ public class ressourceDaoImpl implements ressourceDao{
         preparedStatement.setString(4,ressource.getSupplier());
         preparedStatement.setString(5,ressource.getPictureRessource());
         preparedStatement.setInt(6,ressource.getIdTask());
-        preparedStatement.setInt(7,ressource.getIdRessource());
+        preparedStatement.executeUpdate();
+    }
+
+    public void updateRessource(Ressource ressource) throws SQLException, ClassNotFoundException {
+        String sql = "update ressource set nameRessource=?,type=?,quantity=?,supplier=?,pictureRessource=? where idRessource=?";
+        PreparedStatement preparedStatement = Connection.getConnection().prepareStatement(sql);
+
+        preparedStatement.setString(1,ressource.getNameRessource());
+        preparedStatement.setString(2,ressource.getType());
+        preparedStatement.setInt(3,ressource.getQuantity());
+        preparedStatement.setString(4,ressource.getSupplier());
+        preparedStatement.setString(5,ressource.getPictureRessource());
+        preparedStatement.setInt(6,ressource.getIdRessource());
         preparedStatement.executeUpdate();
     }
 

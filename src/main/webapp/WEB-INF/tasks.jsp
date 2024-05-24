@@ -53,12 +53,16 @@
                     </p>
                     <div class="button-crud d-flex flex-row gap-2">
                         <a class="btn btn-default rounded-2 text-black fw-semibold" href="./ressourcesTask?idTask=${task.getIdTask()}" role="button" id="btnGetStarted" style="background-color: #FFDFB9;width:155px; color: white">View Ressources</a>
-                        <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editTask?idTask=${task.getIdTask()}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
+                        <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editTask?idTask=${task.getIdTask()}&idProject=${idProject}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
                             <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
                         </a>
-                        <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
-                            <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                        </a>
+                        <form action="deleteTask" method="post">
+                            <input type="hidden" name="idTask" value="${task.getIdTask()}">
+                            <input type="hidden" name="idProject" value="${idProject}">
+                            <button class="btn btn-default rounded-2" role="button" id="delete" style="background-color: #FFDFB9; color: white">
+                                <img  src="https://i.ibb.co/647jYn0/bin.png" height="25">
+                            </button>
+                        </form>
                     </div>
                 </div>
         </div>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,35 +33,40 @@
     <h1 class="card-title text-center fw-bold" style="color: #FF6900">Edit Ressources</h1>
 </div>
 <div class="container text-white w-75 mb-5 p-4" style="background-color: #FF6900">
-    <form class="d-flex flex-column align-items-center">
-        <div class=" mb-4 w-75">
+    <form action="editRessource" method="post" class="d-flex flex-column align-items-center">
+        <input type="hidden" name="idTask" value="${idTask}">
+        <input type="hidden" name="idRessource" value="${idRessource}">
+        <div class="mb-4 w-75">
             <label class="form-label" for="name">Name Ressource</label>
-            <input type="text" id="name" name="name" class="form-control w-100" />
+            <input type="text" id="name" name="name" class="form-control w-100" value="${ressource.getNameRessource()}"/>
         </div>
 
         <div class=" mb-4 w-75">
             <label class="form-label" for="type">Type</label>
-            <input type="text" id="type" name="type" class="form-control w-100" />
+            <input type="text" id="type" name="type" class="form-control w-100" value="${ressource.getType()}"/>
         </div>
 
         <div class="form-outline mb-4 w-75">
             <label class="form-label" for="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quantity" class="form-control w-25" />
+            <input type="number" id="quantity" name="quantity" class="form-control w-25" value="${ressource.getQuantity()}"/>
         </div>
 
         <div class=" mb-4 w-75">
             <label class="form-label" for="supplier">Supplier</label>
-            <input type="text" id="supplier" name="supplier" class="form-control w-100" />
+            <input type="text" id="supplier" name="supplier" class="form-control w-100" value="${ressource.getSupplier()}"/>
         </div>
 
         <div class="form-outline mb-4 w-75">
             <label class="form-label" for="picture">Picture Ressource <br>(Url)</label>
-            <input type="text" id="picture" name="picture" class="form-control w-75" />
+            <input type="text" id="picture" name="picture" class="form-control w-75" value="${ressource.getPictureRessource()}"/>
         </div>
         <div class="d-flex justify-content-end w-75">
-            <button  type="button" data-mdb-button-init
+            <button  type="submit" data-mdb-button-init
                      data-mdb-ripple-init class="btn btn-block btn-lg gradient-custom-4 text-body" style="background-color: #FFDFB9">update Ressource</button>
         </div>
+        <c:if test="${ not empty result}">
+            <div class="fw-bold fs-5 bg-white p-2 rounded-5" style="color: #4CAF50;text-align: center">${result}</div>
+        </c:if>
     </form>
 </div>
 <%@ include file="footer.jsp"%>

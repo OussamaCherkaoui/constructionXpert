@@ -57,12 +57,16 @@
                     </div>
                 </div>
                 <div class="p-3 d-flex flex-row justify-content-end gap-2" style="width: 100%">
-                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editRessource?idRessource=${ressource.getIdRessource()}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
+                    <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editRessource?idRessource=${ressource.getIdRessource()}&idTask=${idTask}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
                         <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
                     </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
-                        <img src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
+                    <form action="deleteRessource" method="post">
+                        <input type="hidden" name="idTask" value="${idTask}">
+                        <input type="hidden" name="idRessource" value="${ressource.getIdRessource()}">
+                        <button class="btn btn-default rounded-2" role="button" id="delete" style="background-color: #FFDFB9; color: white">
+                            <img  src="https://i.ibb.co/647jYn0/bin.png" height="25">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -73,7 +77,7 @@
     </c:forEach>
 </div>
 <div class="d-flex flex-row align-items-center justify-content-center mb-5">
-    <a class="btn btn-default fs-5 rounded-3 text-black fw-semibold" href="./newRessource" role="button" id="btnNewTask" style="background-color:#FFDFB9;width:220px; color: white">
+    <a class="btn btn-default fs-5 rounded-3 text-black fw-semibold" href="./newRessource?idTask=${idTask}" role="button" id="btnNewTask" style="background-color:#FFDFB9;width:220px; color: white">
         New Ressources
         <img style="margin-left: 8px" src="https://i.ibb.co/qMCr2VQ/more.png" height="25">
     </a>

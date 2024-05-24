@@ -47,11 +47,11 @@ public class editProject extends HttpServlet {
         try {
             projectDAO.updateProject(project);
             request.setAttribute("result","project updated successfully");
+            response.sendRedirect("/constructionXpert/ourProjects");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/editProject.jsp").forward(request, response);
     }
 }

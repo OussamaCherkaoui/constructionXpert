@@ -19,6 +19,7 @@ public class ressourcesTask extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             int idTask = Integer.parseInt(request.getParameter("idTask"));
+            request.setAttribute("idTask", idTask);
             request.setAttribute("ressources", ressourceDAO.getRessourceByIdTask(idTask));
         } catch (SQLException e) {
             throw new RuntimeException(e);

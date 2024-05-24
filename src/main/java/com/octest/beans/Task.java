@@ -24,6 +24,23 @@ public class Task {
         this.idProject = idProject;
     }
 
+    public Task(String description, LocalDate startDate, LocalDate endDate, String statut, String pictureResponsable, Integer idProject) {
+        this.descriptionTache = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.statut = statut;
+        this.pictureResponsable = pictureResponsable;
+        this.idProject = idProject;
+    }
+
+    public Task(Integer idTask, String description, LocalDate startDate, LocalDate endDate, String statut, String pictureResponsable) {
+        this.idTask = idTask;
+        this.descriptionTache = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.statut = statut;
+        this.pictureResponsable = pictureResponsable;
+    }
 
 
     public int getIdTask() {

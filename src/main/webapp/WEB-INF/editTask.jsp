@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,39 +33,55 @@
     <h1 class="card-title text-center fw-bold" style="color: #FF6900">Edit Task</h1>
 </div>
 <div class="container text-white w-75 mb-5 p-4" style="background-color: #FF6900">
-    <form class="d-flex flex-column align-items-center">
+    <form action="editTask" method="post" class="d-flex flex-column align-items-center">
+        <input type="hidden" name="idProject" value="${idProject}">
+        <input type="hidden" name="idTask" value="${idTask}">
         <div class=" mb-4 w-75">
             <label class="form-label" for="description">Description</label>
-            <textarea id="description" name="description" class="form-control w-100"></textarea>
+            <textarea id="description" name="description" class="form-control w-100">${task.getDescriptionTache()}</textarea>
         </div>
 
         <div class="form-outline mb-4 w-75">
             <label class="form-label" for="startDate">Start date</label>
-            <input type="date" id="startDate" name="startDate" class="form-control w-25"/>
+            <input type="date" id="startDate" name="startDate" value="${task.getStartDate()}" class="form-control w-25"/>
         </div>
 
         <div class="form-outline mb-4 w-75">
             <label class="form-label" for="endDate">End date</label>
-            <input type="date" id="endDate" name="endDate" class="form-control w-25" />
+            <input type="date" id="endDate" name="endDate" value="${task.getEndDate()}" class="form-control w-25" />
         </div>
 
         <div class="form-outline mb-4 w-75">
             <label class="form-label" for="statut">Statut</label>
-            <select class="form-select w-50" name="statut" id="statut">
-                <option selected>Select statut</option>
-                <option value="Afaire">à faire</option>
-                <option value="encours">en cours</option>
-                <option value="terminer">terminé</option>
+            <select class="form-select w-50" name="statut" id="statut" >
+                <option selected>${task.getStatut()}</option>
+                <c:choose>
+                    <c:when test="${task.getStatut()=='a faire'}">
+                        <option value="en cours">en cours</option>
+                        <option value="termine">termine</option>
+                    </c:when>
+                    <c:when test="${task.getStatut() == 'en cours'}">
+                        <option value="a faire">a faire</option>
+                        <option value="terminer">termine</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="a faire">a faire</option>
+                        <option value="en cours">en cours</option>
+                    </c:otherwise>
+                </c:choose>
             </select>
         </div>
         <div class="form-outline mb-4 w-75">
-            <label class="form-label" for="picture">Picture Responsable <br>(Url)</label>
-            <input type="text" id="picture" name="picture" class="form-control w-75" />
+            <label class="form-label" for="picture">Picture Responsable <br> (Url)</label>
+            <input type="text" id="picture" name="picture" class="form-control w-75" value="${task.getPictureResponsable()}" />
         </div>
         <div class="d-flex justify-content-end w-75">
-            <button  type="button" data-mdb-button-init
+            <button  type="submit" data-mdb-button-init
                      data-mdb-ripple-init class="btn btn-block btn-lg gradient-custom-4 text-body" style="background-color: #FFDFB9">update Task</button>
         </div>
+        <c:if test="${ not empty result}">
+            <div class="fw-bold fs-5 bg-white p-2 rounded-5" style="color: #4CAF50;text-align: center">${result}</div>
+        </c:if>
     </form>
 </div>
 

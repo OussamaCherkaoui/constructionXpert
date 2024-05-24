@@ -61,9 +61,12 @@
                     <a class="btn btn-default rounded-2 d-flex flex-column align-items-center" href="./editProject?idProject=${project.getIdProject()}" role="button" id="modifier" style="background-color: #FFDFB9; color: white">
                         <img style="margin-left: 2px;" src="https://i.ibb.co/3WHBbv1/editing.png" height="25">
                     </a>
-                    <a class="btn btn-default rounded-2" href="#" role="button" id="delete" style="background-color: #FFDFB9; color: white">
-                        <img  src="https://i.ibb.co/647jYn0/bin.png" height="25">
-                    </a>
+                    <form action="deleteProject" method="post">
+                        <input type="hidden" name="idProject" value="${project.getIdProject()}">
+                        <button class="btn btn-default rounded-2" role="button" id="delete" style="background-color: #FFDFB9; color: white">
+                            <img  src="https://i.ibb.co/647jYn0/bin.png" height="25">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

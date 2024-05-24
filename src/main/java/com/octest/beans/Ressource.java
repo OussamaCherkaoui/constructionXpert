@@ -23,6 +23,24 @@ public class Ressource {
         this.idTask = idTask;
     }
 
+    public Ressource(String nameRessource, String type, Integer quantity, String supplier, String pictureRessource, Integer idTask) {
+        this.nameRessource = nameRessource;
+        this.type = type;
+        this.quantity = quantity;
+        this.supplier = supplier;
+        this.pictureRessource = pictureRessource;
+        this.idTask = idTask;
+    }
+
+    public Ressource(Integer idRessource, String nameRessource, String type, Integer quantity, String supplier, String pictureRessource) {
+        this.idRessource = idRessource;
+        this.nameRessource = nameRessource;
+        this.type = type;
+        this.quantity = quantity;
+        this.supplier = supplier;
+        this.pictureRessource = pictureRessource;
+    }
+
     public int getIdRessource() {
         return idRessource;
     }

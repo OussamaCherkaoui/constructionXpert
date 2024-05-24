@@ -46,7 +46,7 @@ public class taskDaoImpl implements taskDao{
     }
 
     public void updateTask(Task task) throws SQLException, ClassNotFoundException {
-        String sql = "update task set descriptionTache=?,startDate=?,endDate=?,statut=?,pictureResponsable=?,idProject=? where idTask=?) VALUES (?,?,?,?,?,?)";
+        String sql = "update task set descriptionTache=?,startDate=?,endDate=?,statut=?,pictureResponsable=? where idTask=?";
         PreparedStatement preparedStatement = Connection.getConnection().prepareStatement(sql);
 
         preparedStatement.setString(1,task.getDescriptionTache());
@@ -54,14 +54,18 @@ public class taskDaoImpl implements taskDao{
         preparedStatement.setDate(3, java.sql.Date.valueOf(task.getEndDate()));
         preparedStatement.setString(4,task.getStatut());
         preparedStatement.setString(5,task.getPictureResponsable());
-        preparedStatement.setInt(6,task.getIdProject());
-        preparedStatement.setInt(7,task.getIdTask());
+        preparedStatement.setInt(6,task.getIdTask());
         preparedStatement.executeUpdate();
     }
 
     public void deleteTask(int idTask) throws SQLException, ClassNotFoundException {
-        String sql = "delete from task where idTask=?";
+        String sql = "delete from ressource where idTask=?";
         PreparedStatement preparedStatement = Connection.getConnection().prepareStatement(sql);
+        preparedStatement.setInt(1,idTask);
+        preparedStatement.executeUpdate();
+
+        sql = "delete from task where idTask=?";
+        preparedStatement = Connection.getConnection().prepareStatement(sql);
         preparedStatement.setInt(1,idTask);
         preparedStatement.executeUpdate();
     }
